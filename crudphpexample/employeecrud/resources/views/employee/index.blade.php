@@ -30,21 +30,21 @@
             <tr>
                 <th scope="col">Employee ID</th>
                 <th scope="col">Employee Name</th>
-                <th scope="col">Employee Gender</th>
                 <th scope="col">Employee Suffix</th>
+                <th scope="col">Employee Gender</th>
                 <th colspan="3">Address </th>
                 <th scope="col">Birthdate </th>
-                <th colspan="2" > Actions </th>
+                <th colspan="3" > Actions </th>
             </tr>
             @foreach ($employeeData  as $employee)
                 <tr>
                     <td>{{ $employee->id }}</td>
                     <td>{{ $employee->lname }}, {{ $employee->fname }}</td>
-                    <td>{{ $employee->gender_id }}</td>
-                    <td>{{ $employee->suffix_id }}</td>
+                    <td>{{ $employee->suffix_name }}</td>
+                    <td>{{ $employee->gender_name }}</td>
                     <td colspan="3">{{ $employee->address }}</td>
                     <td>{{ date('F d, Y', strtotime($employee->birthdate)) }}</td>
-                    <td>
+                    <td colspan="3">
                         <a class="btn btn-success" href="{{ route('employee.show', $employee->id) }}">View</a>
                         <a class="btn btn-primary" href="{{ route('employee.edit', $employee->id) }}">Edit</a>
                         <a class="btn btn-danger" href="{{ route('employee.delete', $employee->id) }}">Delete</a>

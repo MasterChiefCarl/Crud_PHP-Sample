@@ -45,51 +45,29 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th><label for="gender">Gender:</label></th>
-                                <td colspan="2"><select name="gender" id="gender">
-                                        @php
-                                            $count = 1;
-                                        @endphp
-                                        @foreach ($gender as $item => $words)
-                                            @if ($count == 1 and old('gender') != $item)
-                                                <option value="{{ $item }}" selected>{{ $words }}</option>
-                                            @elseif(old('gender') == $item)
-                                                <option value="{{ $item }}" selected>{{ $words }}</option>
-                                            @else
-                                                <option value="{{ $item }}">{{ $words }}</option>
-                                            @endif
-                                            @php
-                                                $count++;
-                                            @endphp
+                                <th><label for="gender_id">Gender:</label></th>
+                                <td colspan="2"><select name="gender_id" id="gender_id" >
+                                    <option selected>--Select--</option>
+                                        @foreach ($gender as $genders)
+                                            <option value= '{{$genders['id']}}'> {{ $genders['gender_name'] }}</option>
                                         @endforeach
                                     </select></td>
                                 <td>
-                                    @foreach ($errors->get('gender') as $errorMessage)
+                                    @foreach ($errors->get('gender_id') as $errorMessage)
                                         <span>{{ $errorMessage }}</span>
                                     @endforeach
                                 </td>
                             </tr>
                             <tr>
-                                <th><label for="suffix">Suffix:</label></th>
-                                <td colspan="2"><select name="suffix" id="suffix" value="{{ old('suffix') }}">
-                                        @php
-                                            $count = 1;
-                                        @endphp
-                                        @foreach ($suffix as $item => $words)
-                                            @if ($count == 1 and old('suffix') != $item)
-                                                <option value="{{ $item }}" selected>{{ $words }}</option>
-                                            @elseif(old('suffix') == $item)
-                                                <option value="{{ $item }}" selected>{{ $words }}</option>
-                                            @else
-                                                <option value="{{ $item }}">{{ $words }}</option>
-                                            @endif
-                                            @php
-                                                $count++;
-                                            @endphp
+                                <th><label for="suffix_id">suffix_id:</label></th>
+                                <td colspan="2"><select name="suffix_id" id="suffix_id" value="{{ old('suffix') }}">
+                                    <option selected>--Select--</option>
+                                        @foreach ($suffix as $suffixes)
+                                            <option value= '{{$suffixes['id']}}'> {{ $suffixes['suffix_name'] }}</option>
                                         @endforeach
                                     </select></td>
                                 <td>
-                                    @foreach ($errors->get('suffix') as $errorMessage)
+                                    @foreach ($errors->get('suffix_id') as $errorMessage)
                                         <span>{{ $errorMessage }}</span>
                                     @endforeach
                                 </td>
